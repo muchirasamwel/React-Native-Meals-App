@@ -6,6 +6,7 @@ import Apploading from 'expo-app-loading'
 
 import { CustomText, HeadText, SuperText } from './components/CustomTexts'
 import Colors from './constants/Colors'
+import MealsNavigatar from './navigation/MealsNavigatar'
 
 export default function App () {
   const [fontLoaded] = Font.useFonts({
@@ -20,12 +21,13 @@ export default function App () {
     return <Apploading />
   }
   return (
-    <View style={styles.container}>
-      <SuperText>Spanish</SuperText>
-      <HeadText>Categories</HeadText>
-      <CustomText style={styles.normal}>details here</CustomText>
-      <StatusBar style='auto' />
-    </View>
+    <MealsNavigatar />
+    // <View style={styles.container}>
+    //   <SuperText>Spanish</SuperText>
+    //   <HeadText>Categories</HeadText>
+    //   <CustomText style={styles.normal}>details here</CustomText>
+    //   <StatusBar style='auto' />
+    // </View>
   )
 }
 
