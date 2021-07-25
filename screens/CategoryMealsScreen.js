@@ -1,24 +1,21 @@
-import React from 'react'
-import { View, Text, StyleSheet, Button } from 'react-native'
+import React, { useState } from 'react'
+
+import MealList from '../components/MealList'
+
+import { MEALS } from '../data/dummy-data'
 
 const CategoryMealsScreen = props => {
   const { navigation } = { ...props }
-  return (
-    <View style={styles.screen}>
-      <Text>CategoryMealsScreen</Text>
-      <Button
-        title='go to details screen'
-        onPress={() => navigation.navigate({ routeName: 'MealDetails' })}
-      />
-    </View>
-  )
-}
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+
+  const categoryId = navigation.getParam('id')
+
+  const getMeals = id => {
+    return MEALS.filter(meal => meal.categoryIds.includes(id))
   }
-})
+
+  const [meals, setMeals] = useState(getMeals(categoryId))
+
+  return <MealList navigation={props.navigation} meals={meals} />
+}
 
 export default CategoryMealsScreen

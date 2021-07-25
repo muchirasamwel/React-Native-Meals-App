@@ -1,5 +1,7 @@
 export default Colors = {
-  primary: 'green',
+  primary: '#24d944',
   secondary: 'black',
-  warning: 'orange'
+  warning: 'orange',
+  redish: '#ea4166',
+  bg: 'white'
 }

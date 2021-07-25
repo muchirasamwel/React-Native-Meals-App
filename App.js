@@ -3,10 +3,12 @@ import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import * as Font from 'expo-font'
 import Apploading from 'expo-app-loading'
+import { enableScreens } from 'react-native-screens'
 
-import { CustomText, HeadText, SuperText } from './components/CustomTexts'
 import Colors from './constants/Colors'
 import MealsNavigatar from './navigation/MealsNavigatar'
+
+enableScreens()
 
 export default function App () {
   const [fontLoaded] = Font.useFonts({
@@ -20,8 +22,13 @@ export default function App () {
   if (!fontLoaded) {
     return <Apploading />
   }
+  String.prototype.capitalize = function () {
+    return this.charAt(0).toUpperCase() + this.slice(1)
+  }
   return (
-    <MealsNavigatar />
+    <View style={styles.appContainer}>
+      <MealsNavigatar />
+    </View>
     // <View style={styles.container}>
     //   <SuperText>Spanish</SuperText>
     //   <HeadText>Categories</HeadText>
@@ -32,16 +39,7 @@ export default function App () {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-
-  normal: {
-    color: Colors.primary,
-    fontSize: 15,
-    fontFamily: 'poppin-medium'
+  appContainer: {
+    flex: 1
   }
 })
