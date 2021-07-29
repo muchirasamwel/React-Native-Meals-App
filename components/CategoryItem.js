@@ -1,7 +1,7 @@
 import React from 'react'
-import { View, Text, StyleSheet, Platform } from 'react-native'
+import { View, StyleSheet, Image } from 'react-native'
 
-import { SuperText, SuperTextN } from './CustomTexts'
+import { SuperText } from './CustomTexts'
 import Colors from '../constants/Colors'
 import Touch from './Touch'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -13,15 +13,16 @@ const CategoryItem = props => {
         <Touch onPress={props.onPress}>
           <View style={styles.itemContainer}>
             <View style={styles.logoContainer}>
-              <Icon
+              <Image
+                style={styles.image}
+                source={require('../assets/images/eating.png')}
+              />
+              {/* <Icon
                 style={styles.icon}
                 name='food'
                 size={100}
                 color={Colors.bg}
-              />
-              {/* <SuperTextN style={styles.superLetter}>
-                {props.item.name.substring(0, 1)}
-              </SuperTextN> */}
+              /> */}
             </View>
             <SuperText style={styles.text}>{props.item.name}</SuperText>
           </View>
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 15,
     borderRadius: 10,
-    backgroundColor: '#ff819d',
+    backgroundColor: 'white',
 
     shadowRadius: 3,
     shadowColor: Colors.secondary,
@@ -58,16 +59,27 @@ const styles = StyleSheet.create({
   text: {
     textAlign: 'center',
     fontSize: 22,
-    color: Colors.bg
+    color: Colors.secondary
   },
   logoContainer: {
     flex: 1,
+    height: '100%',
+    width: '100%',
     justifyContent: 'center',
     alignItems: 'center'
   },
   superLetter: {
     fontSize: 40,
     color: Colors.bg
+  },
+  imageContainer: {
+    width: 100,
+    height: 100
+  },
+  image: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'contain'
   },
   icon: {
     borderWidth: 2,

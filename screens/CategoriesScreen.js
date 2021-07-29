@@ -1,11 +1,8 @@
 import React from 'react'
 import { StyleSheet, FlatList } from 'react-native'
-import { DrawerActions } from 'react-navigation-drawer'
 
 import { CATEGORIES } from '../data/dummy-data'
 import CategoryItem from '../components/CategoryItem'
-import { HeaderButtons, Item } from 'react-navigation-header-buttons'
-import CustomHeaderButton from '../components/CustomHeaderButton'
 
 const CategoriesScreen = props => {
   const { navigation } = { ...props }
@@ -31,22 +28,6 @@ const CategoriesScreen = props => {
     />
   )
 }
-// CategoriesScreen.navigationOptions = tabDetails => {
-//   return {
-//     headerLeft: () => {
-//       return (
-//         <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
-//           <Item
-//             iconName='menu'
-//             onPress={() => {
-//               tabDetails.navigation.dispatch(DrawerActions.toggleDrawer())
-//             }}
-//           />
-//         </HeaderButtons>
-//       )
-//     }
-//   }
-// }
 
 const styles = StyleSheet.create({
   screen: {

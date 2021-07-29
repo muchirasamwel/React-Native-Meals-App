@@ -7,9 +7,10 @@ const MealList = props => {
   const { navigation } = { ...props }
 
   const navigateDetails = meal => {
+    console.log(meal)
     navigation.navigate({
       routeName: 'MealDetails',
-      params: { mealId: meal.id, mealName: meal.title }
+      params: { mealId: meal.id, mealName: meal.title, fav: meal.fav }
     })
   }
   return (

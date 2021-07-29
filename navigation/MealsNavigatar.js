@@ -21,18 +21,19 @@ const DefaultStackOptions = {
   headerStyle: {
     backgroundColor: Platform.OS == 'ios' ? 'white' : Colors.redish
   },
+  headerTitleStyle: {
+    fontFamily: 'poppin-bold'
+  },
+  headerBackTitleStyle: {
+    fontFamily: 'poppin-regular'
+  },
   headerTintColor: Platform.OS == 'ios' ? Colors.redish : 'white'
 }
 
-const MenuIcon = ({ navData }) => {
+const MenuIcon = ({ iconName, onPress }) => {
   return (
     <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
-      <Item
-        iconName='menu'
-        onPress={() => {
-          navData.navigation.openDrawer()
-        }}
-      />
+      <Item iconName={iconName} onPress={onPress} />
     </HeaderButtons>
   )
 }
@@ -43,10 +44,10 @@ const mealNavigationOptions = navigation => {
     headerRight: () => (
       <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
         <Item
-          iconName='star'
-          onPress={() => {
-            console.log('mark as favorite')
-          }}
+          iconName={
+            navigation.getParam('fav') == true ? 'star' : 'star-outline'
+          }
+          onPress={navigation.getParam('toggleFav')}
         />
       </HeaderButtons>
     )
@@ -61,7 +62,14 @@ const MealsNavigator = createStackNavigator(
         return {
           headerTitle: 'Food Categories',
           headerLeft: () => {
-            return <MenuIcon navData={tabDetails} />
+            return (
+              <MenuIcon
+                iconName='menu'
+                onPress={() => {
+                  tabDetails.navigation.openDrawer()
+                }}
+              />
+            )
           }
         }
       }
@@ -132,7 +140,10 @@ const TabNavigator = createBottomTabNavigator(
   },
   {
     tabBarOptions: {
-      activeTintColor: Colors.redish
+      activeTintColor: Colors.redish,
+      labelStyle: {
+        fontFamily: 'poppin-medium'
+      }
     }
   }
 )
@@ -144,7 +155,20 @@ const FiltersNavigator = createStackNavigator(
       navigationOptions: navData => {
         return {
           title: 'Filters settings',
-          headerLeft: <MenuIcon navData={navData} />
+          headerLeft: (
+            <MenuIcon
+              iconName='menu'
+              onPress={() => {
+                navData.navigation.openDrawer()
+              }}
+            />
+          ),
+          headerRight: (
+            <MenuIcon
+              iconName='content-save'
+              onPress={navData.navigation.getParam('save')}
+            />
+          )
         }
       }
     }
@@ -154,10 +178,18 @@ const FiltersNavigator = createStackNavigator(
   }
 )
 
-const DrawerNavigator = createDrawerNavigator({
-  Home: TabNavigator,
-  Filters: FiltersNavigator
-})
+const DrawerNavigator = createDrawerNavigator(
+  {
+    Home: TabNavigator,
+    Filters: FiltersNavigator
+  },
+  {
+    contentOptions: {
+      activeTintColor: Colors.redish,
+      labelStyle: {}
+    }
+  }
+)
 
 const styles = StyleSheet.create({
   tabIcon: {

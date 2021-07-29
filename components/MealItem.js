@@ -1,16 +1,9 @@
 import React from 'react'
-import {
-  View,
-  StyleSheet,
-  ImageBackground,
-  Platform,
-  Image
-} from 'react-native'
+import { View, StyleSheet, Platform, Image } from 'react-native'
 
 import { CustomText, HeadText } from './CustomTexts'
 import Colors from '../constants/Colors'
 import Touch from './Touch'
-import { color } from 'react-native-reanimated'
 
 const CategoryItem = props => {
   return (

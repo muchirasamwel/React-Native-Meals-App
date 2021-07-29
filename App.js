@@ -4,11 +4,23 @@ import { StyleSheet, View } from 'react-native'
 import * as Font from 'expo-font'
 import Apploading from 'expo-app-loading'
 import { enableScreens } from 'react-native-screens'
+import { createStore, combineReducers } from 'redux'
+import { Provider } from 'react-redux'
 
-import Colors from './constants/Colors'
 import MealsNavigatar from './navigation/MealsNavigatar'
+import mealsReducer from './store/reducers/meals'
+import filterReducer from './store/reducers/filters'
 
+import { LogBox } from 'react-native'
+// LogBox.ignoreAllLogs()
 enableScreens()
+
+const mainReducer = combineReducers({
+  mealsStore: mealsReducer,
+  filtersStore: filterReducer
+})
+
+const store = createStore(mainReducer)
 
 export default function App () {
   const [fontLoaded] = Font.useFonts({
@@ -26,15 +38,11 @@ export default function App () {
     return this.charAt(0).toUpperCase() + this.slice(1)
   }
   return (
-    <View style={styles.appContainer}>
-      <MealsNavigatar />
-    </View>
-    // <View style={styles.container}>
-    //   <SuperText>Spanish</SuperText>
-    //   <HeadText>Categories</HeadText>
-    //   <CustomText style={styles.normal}>details here</CustomText>
-    //   <StatusBar style='auto' />
-    // </View>
+    <Provider store={store}>
+      <View style={styles.appContainer}>
+        <MealsNavigatar />
+      </View>
+    </Provider>
   )
 }
 

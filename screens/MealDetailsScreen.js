@@ -1,19 +1,27 @@
-import React from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { View, StyleSheet, ScrollView, Image, FlatList } from 'react-native'
+import { useSelector, useDispatch } from 'react-redux'
 
-import {
-  CustomText,
-  HeadText,
-  SuperText,
-  SuperTextN
-} from '../components/CustomTexts'
+import { CustomText, HeadText, SuperText } from '../components/CustomTexts'
 import Colors from '../constants/Colors'
-import { MEALS } from '../data/dummy-data'
-import Meal from '../models/meal'
+import { toggleFav } from '../store/actions/meals'
 
 const MealDetailsScreen = props => {
   const mealId = props.navigation.getParam('mealId')
-  const MEAL = MEALS.find(meal => meal.id == mealId)
+  const { navigation } = props
+  const allMeals = useSelector(state => state.mealsStore.meals)
+  const MEAL = allMeals.find(meal => meal.id == mealId)
+
+  const dispatch = useDispatch()
+
+  const toggleFavoriteHandler = useCallback(() => {
+    dispatch(toggleFav(mealId))
+  }, [dispatch, mealId])
+
+  useEffect(() => {
+    navigation.setParams({ toggleFav: toggleFavoriteHandler, fav: MEAL.fav })
+  }, [toggleFavoriteHandler, MEAL])
+
   return (
     <ScrollView>
       <View style={styles.screen}>
@@ -47,14 +55,18 @@ const MealDetailsScreen = props => {
           </HeadText>
           <HeadText style={styles.infoText}>
             Vegan: {}
-            <HeadText style={styles.headText}>
-              {MEAL.isVegan ? 'No' : 'Yes'}
+            <HeadText
+              style={MEAL.isLactoseFree ? styles.headText : styles.headTextD}
+            >
+              {!MEAL.isVegan ? 'No' : 'Yes'}
             </HeadText>
           </HeadText>
           <HeadText style={styles.infoText}>
             Vegetarian: {}
-            <HeadText style={styles.headText}>
-              {MEAL.isVegetarian ? 'No' : 'Yes'}
+            <HeadText
+              style={MEAL.isLactoseFree ? styles.headText : styles.headTextD}
+            >
+              {!MEAL.isVegetarian ? 'No' : 'Yes'}
             </HeadText>
           </HeadText>
         </View>

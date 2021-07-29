@@ -1,11 +1,18 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+import EmptyListItem from '../components/EmptyListItem'
 import MealList from '../components/MealList'
 
-import { MEALS } from '../data/dummy-data'
-
 const FavoritesScreen = props => {
-  const meals = MEALS.filter(meal => meal.id == 'm1' || meal.id == 'm5')
-  return <MealList meals={meals} navigation={props.navigation} />
+  const allMeals = useSelector(state => state.mealsStore.meals)
+  const meals = allMeals.filter(meal => meal.fav == true)
+
+  let renderContent = <MealList meals={meals} navigation={props.navigation} />
+  if (meals < 1) {
+    renderContent = <EmptyListItem title='No Favorites saved yet.' />
+  }
+
+  return renderContent
 }
 
 export default FavoritesScreen
