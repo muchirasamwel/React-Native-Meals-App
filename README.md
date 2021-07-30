@@ -7,7 +7,7 @@
 **Meal Details**
 ![Details](./assets/images/cover3.png)
 
-<p align="center">
+<p align="center" style="background:black">
   <img src="./assets/images/cover4.png" width="350" title="hover text">
 </p>
 
