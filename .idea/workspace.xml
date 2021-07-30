@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="694ddfde-cfde-4574-89bc-cf68b5b28a3b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/images/cover.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cover2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cover3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/cover4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CategoryItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/CategoryItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/MealItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/MealItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigation/MealsNavigatar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +26,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/images" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -47,7 +42,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1627663624351</updated>
-      <workItem from="1627663629529" duration="662000" />
+      <workItem from="1627663629529" duration="1081000" />
     </task>
     <servers />
   </component>
