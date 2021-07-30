@@ -1,14 +1,18 @@
 **Home Screen**
-![home](./assets/images/cover.png)
-
+<p align="center" style="background:black">
+  <img src="./assets/images/cover.png" width="350" title="Home screen">
+</p>
 **Meals**
-![Meals](./assets/images/cover2.png)
-
+<p align="center" style="background:black">
+  <img src="./assets/images/cover2.png" width="350" title="Meals Screen">
+</p>
 **Meal Details**
-![Details](./assets/images/cover3.png)
+<p align="center" style="background:black">
+  <img src="./assets/images/cover3.png" width="350" title="Details Screen">
+</p>
 
 <p align="center" style="background:black">
-  <img src="./assets/images/cover4.png" width="350" title="hover text">
+  <img src="./assets/images/cover4.png" width="350" title="Favorites Screen">
 </p>
 
 **Simple Meal Application** 
