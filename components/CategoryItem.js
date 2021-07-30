@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   text: {
     textAlign: 'center',
     fontSize: 22,
-    color: Colors.secondary
+    color: Colors.warning
   },
   logoContainer: {
     flex: 1,

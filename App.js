@@ -7,12 +7,12 @@ import { enableScreens } from 'react-native-screens'
 import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 
-import MealsNavigatar from './navigation/MealsNavigatar'
+import MainNavigatar from './navigation/MainNavigatar'
 import mealsReducer from './store/reducers/meals'
 import filterReducer from './store/reducers/filters'
 
 import { LogBox } from 'react-native'
-// LogBox.ignoreAllLogs()
+LogBox.ignoreAllLogs()
 enableScreens()
 
 const mainReducer = combineReducers({
@@ -40,7 +40,7 @@ export default function App () {
   return (
     <Provider store={store}>
       <View style={styles.appContainer}>
-        <MealsNavigatar />
+        <MainNavigatar />
       </View>
     </Provider>
   )

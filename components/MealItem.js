@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   },
   textHead: {
     textAlign: 'left',
-    color: Colors.redish,
+    color: Colors.warning,
     fontSize: 15
   },
   textGroup: {
